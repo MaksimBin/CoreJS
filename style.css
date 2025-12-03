@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 15pt;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    background: red;
+    border-radius: 50%;
+    background-image: url("/IMG_20251204_003329.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 42px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    color: #fff;
+}
+
+
+.tok-key     { color: #7ee787; }
+.tok-builtin { color: #79c0ff; }
+.tok-string  { color: #a5d6ff; }
+.tok-number  { color: #f2cc60; }
+.tok-comment { color: #6e7681; font-style: italic; }
+
+.dogs{
+    margin-top: 30px;
+}
+
+.pre {
+    width: 120%;
+    height: 300px;
+    margin-top: 30px;
+  background: #1e1e1e;       /* тёмный фон */
+  background-image: url("/IMG_20251204_022631.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+}
+
+.code {
+  color: skyblue;            /* акцентный цвет для текста */
+}
+
+

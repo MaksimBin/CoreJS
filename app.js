@@ -9,7 +9,7 @@ document.head.appendChild(link);
 function LinkExplicit() {
   const go = (e) => {
     // если хочешь уважить кастомную логику — не делай preventDefault здесь
-    const href = "https://maksimbin.github.io/CoreJS/";
+    const href = "https://github.com/MaksimBin/CoreJS";
     const target = "_blank";
     if (target === "_blank") window.open(href, "_blank", "noopener,noreferrer");
     else window.location.assign(href);

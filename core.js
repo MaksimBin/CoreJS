@@ -108,21 +108,21 @@ function createElement(vnode) {
   return el;
 }
 
-// ===== Пропсы/события =====
 function updateProps(el, props = {}) {
   // снять атрибуты, которых больше нет
   [...el.attributes].forEach(attr => {
     if (!(attr.name in props)) el.removeAttribute(attr.name);
   });
-
+  
   for (const [key, value] of Object.entries(props)) {
     if (value === undefined || value === null) continue;
-
+    
     // Стили объектом
     if (key === "style" && typeof value === "object") {
       Object.assign(el.style, value);
       continue;
     }
+    
     // События onClick/onInput/...
     if (key.startsWith("on") && typeof value === "function") {
       const evt = key.slice(2).toLowerCase();
@@ -131,11 +131,49 @@ function updateProps(el, props = {}) {
       el[`__handler_${evt}`] = value;
       continue;
     }
+    
     // Значение для input/textarea
     if (key === "value" && "value" in el) {
       el.value = value;
       continue;
     }
+    
+    // Ссылки <a>: атрибуты + явная навигация
+    if (el.tagName.toLowerCase() === "a") {
+      if (key === "href" || key === "target" || key === "rel") {
+        el.setAttribute(key, value);
+        if (!el.__core_link_bound) {
+          el.addEventListener("click", (e) => {
+            if (e.defaultPrevented) return;
+            const href = el.getAttribute("href");
+            if (!href) return;
+            const tgt = el.getAttribute("target");
+            if (tgt === "_blank") {
+              const win = window.open(href, "_blank", "noopener,noreferrer");
+              if (win) { try { win.opener = null; } catch {} }
+            } else {
+              window.location.assign(href);
+            }
+            e.preventDefault();
+          });
+          el.__core_link_bound = true;
+        }
+        continue;
+      }
+    }
+    
+    // Картинки <img>
+    if (el.tagName.toLowerCase() === "img" && (key === "src" || key === "alt")) {
+      el.setAttribute(key, value);
+      continue;
+    }
+    
+    // iframe
+    if (el.tagName.toLowerCase() === "iframe" && key === "src") {
+      el.setAttribute(key, value);
+      continue;
+    }
+    
     // Прямое свойство DOM-узла
     if (key in el && typeof value !== "object") {
       el[key] = value;

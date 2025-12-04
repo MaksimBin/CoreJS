@@ -6,6 +6,23 @@ link.rel = "stylesheet";
 link.href = "styles.css";
 document.head.appendChild(link);
 
+function LinkExplicit() {
+  const go = (e) => {
+    // если хочешь уважить кастомную логику — не делай preventDefault здесь
+    const href = "https://maksimbin.github.io/CoreJS/";
+    const target = "_blank";
+    if (target === "_blank") window.open(href, "_blank", "noopener,noreferrer");
+    else window.location.assign(href);
+  };
+  
+  return tpl`
+    <a href="https://example.com" target="_blank" rel="noopener noreferrer"
+       onClick=${go}
+       style=${{ color: "#00e5ff", textDecoration: "underline", cursor: "pointer" }}>
+      Docs Core.dev
+    </a>
+  `;
+}
 
 
 
@@ -30,7 +47,7 @@ function Counter() {
       background: "linear-gradient(135deg, #009688, #0b1e2e)",
       fontFamily: "sans-serif",
       color: "#fff",
-      padding:"50px",
+      padding:"0px 50px",
     }}>
       <!-- Логотип -->
       <div style=${{
@@ -41,7 +58,7 @@ function Counter() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        marginBottom: "16px",
+        margin: "16px",
         boxShadow: "0 0 12px rgba(0,255,255,0.3)"
       }}>
         <div class="logo"></div>
@@ -100,12 +117,10 @@ function Counter() {
         }}>+1</button>
       </div>
       
-      <div class="dogs">
-      Docs GitHub
+      <div class="a" style=${{marginTop:"30px"}}>
+     ${LinkExplicit()}
       </div>
-
-<div class="pre"></div>
-     </div>
+      <div class="pre"></div>
   `;
 }
 
@@ -118,6 +133,7 @@ function App() {
 }
 
 registerComponent("App", App);
+registerComponent("LinkExplicit", LinkExplicit);
 registerComponent("Counter", Counter);
 //registerComponent("Houm", Houm);
 

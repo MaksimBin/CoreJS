@@ -26,6 +26,14 @@ body {
     color: #fff;
 }
 
+.a{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    
+
+}
+
 
 .tok-key     { color: #7ee787; }
 .tok-builtin { color: #79c0ff; }

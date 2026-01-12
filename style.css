@@ -61,39 +61,3 @@ background-position: center;
 }
 
 
-h1 { margin-bottom: 20px; }
-    p { margin-bottom: 20px; }
-
-    .code-block {
-      position: relative;
-      background: #111;
-      color: #eee;
-      padding: 20px;
-      border-radius: 8px;
-      overflow-x: auto;
-      font-family: "Fira Code", monospace;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-    .copy-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #4fc3f7;
-      border: none;
-      color: #000;
-      padding: 6px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 12px;
-    }
-    .copy-btn:hover {
-      background: #81d4fa;
-    }
-    /* простая подсветка */
-    .keyword { color: #4fc3f7; }
-    .func { color: #81c784; }
-    .string { color: #f48fb1; }
-    .number { color: #ffb74d; }
-
-

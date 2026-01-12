@@ -153,21 +153,6 @@ function App() {
 render(App, "#app");
 </code></pre>
   </div>
-
-  /////тут
-    // Логика копирования
-    document.querySelectorAll('.copy-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const code = btn.nextElementSibling.innerText;
-        navigator.clipboard.writeText(code).then(() => {
-          btn.textContent = "Скопировано!";
-          setTimeout(() => btn.textContent = "Скопировать", 2000);
-        });
-      });
-    });
-
-
-//////тут
   </div>
   `;
 }

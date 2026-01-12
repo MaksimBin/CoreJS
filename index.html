@@ -19,6 +19,52 @@
 
 <body>
   <div id="app"></div>
+
+
+<!-------------->
+
+<h1>Пример использования Core JS</h1>
+  <p>Скопируйте код ниже и используйте его вместе с <code>core.js</code>.</p>
+
+  <div class="code-block">
+    <button class="copy-btn">Скопировать</button>
+<pre><code>
+<span class="keyword">import</span> { render, useState, tpl } <span class="keyword">from</span> "./core.js";
+
+<span class="func">function</span> App() {
+  <span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>);
+
+  <span class="keyword">return</span> tpl`
+    &lt;div&gt;
+      &lt;h2&gt;Счётчик: ${count}&lt;/h2&gt;
+      &lt;button onClick=${() =&gt; setCount(count + <span class="number">1</span>)}&gt;+&lt;/button&gt;
+      &lt;button onClick=${() =&gt; setCount(count - <span class="number">1</span>)}&gt;-&lt;/button&gt;
+    &lt;/div&gt;
+  `;
+}
+
+render(App, "#app");
+</code></pre>
+  </div>
+
+  <script>
+    // Логика копирования
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const code = btn.nextElementSibling.innerText;
+        navigator.clipboard.writeText(code).then(() => {
+          btn.textContent = "Скопировано!";
+          setTimeout(() => btn.textContent = "Скопировать", 2000);
+        });
+      });
+    });
+  </script>
+
+
+<!---------------->
+
+
+
   <script type="module" src="./app.js"></script>
 </body>
 </html>

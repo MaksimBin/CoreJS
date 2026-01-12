@@ -6,15 +6,6 @@ link.rel = "stylesheet";
 link.href = "styles.css";
 document.head.appendChild(link);
 
-
-
-
-
-
-
-
-
-
 function LinkExplicit() {
   const go = (e) => {
     // если хочешь уважить кастомную логику — не делай preventDefault здесь
@@ -52,7 +43,7 @@ function Counter() {
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "start",
-      height: "100vh",
+      height: "70vh",
       background: "linear-gradient(135deg, #009688, #0b1e2e)",
       fontFamily: "sans-serif",
       color: "#fff",
@@ -129,7 +120,7 @@ function Counter() {
       <div class="a" style=${{marginTop:"30px"}}>
      ${LinkExplicit()}
       </div>
-      <div class="pre"></div>
+      
   `;
 }
 

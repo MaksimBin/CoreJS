@@ -55,9 +55,9 @@ function CodeBlock({ code }) {
 
 
 // Главный компонент DemoPage
-export function DemoPage() {
+function DemoPage() {
   const exampleCode = `
-import { render, useState, tpl } from "./core.js";
+
 
 function Counter() {
   const [count, setCount] = useState(0);

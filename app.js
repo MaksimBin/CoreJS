@@ -8,86 +8,7 @@ document.head.appendChild(link);
 
 
 
-// Компонент CodeBlock
-function CodeBlock({ code }) {
-  const [copied, setCopied] = useState(false);
-  
-  function copy() {
-    navigator.clipboard.writeText(code).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  }
-  
-  return tpl`
-    <div style=${{
-      position: "relative",
-      background: "#111",
-      color: "#eee",
-      padding: "20px",
-      borderRadius: "8px",
-      overflowX: "auto",
-      fontFamily: "Fira Code, monospace",
-      fontSize: "14px",
-      marginBottom: "20px"
-    }}>
-      <button 
-        onClick=${copy} 
-        style=${{
-          position: "absolute",
-          top: "10px",
-          right: "10px",
-          background: copied ? "#81d4fa" : "#4fc3f7",
-          border: "none",
-          color: "#000",
-          padding: "6px 10px",
-          borderRadius: "4px",
-          cursor: "pointer",
-          fontSize: "12px"
-        }}
-      >
-        ${copied ? "Скопировано!" : "Скопировать"}
-      </button>
-      <pre><code>${code}</code></pre>
-    </div>
-  `;
-}
 
-
-// Главный компонент DemoPage
-function DemoPage() {
-  const exampleCode = `
-
-
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  return tpl\`
-    <div>
-      <h2>Счётчик: \${count}</h2>
-      <button onClick=\${() => setCount(count + 1)}>+</button>
-      <button onClick=\${() => setCount(count - 1)}>-</button>
-    </div>
-  \`;
-}
-
-
-`;
-  
-  return tpl`
-    <div style=${{
-      background: "#fff",
-      color: "#000",
-      fontFamily: "sans-serif",
-      padding: "40px",
-      lineHeight: "1.6"
-    }}>
-      <h1>Пример использования Core JS</h1>
-      <p>Скопируйте код ниже и используйте его вместе с <code>core.js</code>.</p>
-      <CodeBlock code=${exampleCode} />
-    </div>
-  `;
-}
 
 
 
@@ -216,7 +137,7 @@ function App() {
   return tpl`
   <div>
   ${Counter()}
-${CodeBlock()}
+
   </div>
   `;
 }
@@ -224,7 +145,7 @@ ${CodeBlock()}
 registerComponent("App", App);
 registerComponent("LinkExplicit", LinkExplicit);
 registerComponent("Counter", Counter);
-registerComponent("CodeBlock", CodeBlock);
+
 //registerComponent("Houm", Houm);
 
 render(App, "#app");

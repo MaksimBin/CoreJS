@@ -1,53 +1,51 @@
-`
+# <span style="color:limegreen">CORE</span>
 
-<span style="color:limegreen">CORE</span>
-
-`txt
+```txt
  ██████╗ ██████╗ ██████╗ ███████╗
 ██╔═══██╗██╔══██╗██╔══██╗██╔════╝
 ██║   ██║██████╔╝██████╔╝█████╗  
 ██║   ██║██╔═══╝ ██╔═══╝ ██╔══╝  
 ╚██████╔╝██║     ██║     ███████╗
  ╚═════╝ ╚═╝     ╚═╝     ╚══════╝
-`
+```
 
 > Минималистичный UI‑движок, вдохновлённый React, но работающий без сборки и Babel.  
 > Декларативный синтаксис, виртуальный DOM и свобода экспериментов.
 
 ---
 
-✨ Возможности
+## ✨ Возможности
 
 - 🟩 Виртуальный DOM и diff‑алгоритм  
 - 🟩 Компоненты и реестр компонентов  
-- 🟩 Хук useState  
-- 🟩 Шаблонные строки tpl для декларативного описания интерфейсов  
+- 🟩 Хук `useState`  
+- 🟩 Шаблонные строки `tpl` для декларативного описания интерфейсов  
 - 🟩 Поддержка фрагментов, списков, условного рендера и спред‑пропсов  
-- 🟩 События (onClick, onInput и др.)
+- 🟩 События `onClick` `onInput` и другие
 
 ---
 
-📂 Структура проекта
+## 📂 Структура проекта
 
-`txt
+```txt
 Core/
  ├── index.html
  ├── core.js
  └── app.js
-`
+```
 
 ---
 
-🚀 Быстрый старт
+## 🚀 Быстрый старт
 
-index.html
-`html
+**index.html**
+```html
 <title>Core Test</title>
 <script type="module" src="./app.js"></script>
-`
+```
 
-app.js
-`js
+**app.js**
+```js
 import { tpl, render, useState, registerComponent } from "./core.js";
 
 function Counter() {
@@ -69,23 +67,43 @@ registerComponent("Counter", Counter);
 registerComponent("App", App);
 
 render(App, "#app");
-`
+```
 
 ---
 
-🛠 Планы развития
+## 🛠 Планы развития
 
-- [ ] 🟩 Добавить useEffect  
+- [ ] 🟩 Добавить `useEffect`  
 - [ ] 🟩 Контекст и глобальное состояние  
 - [ ] 🟩 Роутинг  
 - [ ] 🟩 Интеграция с Babel для полноценного JSX  
 
 ---
 
-💡 Почему Core?
+## 💡 Почему Core
 
 - 🟩 Без сборки и лишних зависимостей  
-- 🟩 Лёгкий старт — просто открой index.html  
-- 🟩 Отличная площадка для экспериментов с UI‑архитектурой  
-`
+- 🟩 Лёгкий старт — просто открой `index.html`  
+- 🟩 Отличная площадка для экспериментов с UI‑архитектурой
 
+---
+
+## Примеры
+
+**Список задач**
+```js
+function TodoList({ items }) {
+  return tpl<ul>
+    ${items.map(item => tpl<li>${item}</li>)}
+  </ul>;
+}
+```
+
+**Условный рендер**
+```js
+function Greeting({ loggedIn }) {
+  return tpl<div>
+    ${loggedIn ? tpl<span>Добро пожаловать</span> : tpl<button onClick=${() => alert('login')}>Войти</button>}
+  </div>;
+}
+```

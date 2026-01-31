@@ -1,4 +1,4 @@
-`markdown
+`
 
 <span style="color:limegreen">CORE</span>
 

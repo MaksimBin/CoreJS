@@ -1,9 +1,8 @@
 # <span style="color:limegreen">CORE</span>
----
+
 <h1 align="center">
   <img src="core-banner.jpeg" alt="Maxim Frontend Developer Banner" />
 </h1>
----
 
 ```txt
  ██████╗ ██████╗ ██████╗ ███████╗
